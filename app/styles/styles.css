@@ -1,0 +1,76 @@
+ 
+
+  nav {
+    background-color: #333;
+    padding: 12px 0;
+    color: white;
+    text-align: center;
+  }
+  
+  nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  nav ul li {
+    font-size: 18px;
+  }
+  
+  nav ul li a {
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    background-color: #555;
+  }
+
+  /* styles/globals.css */
+body {
+    font-family: 'Arial', sans-serif; /* Set a clean font */
+    background-color: #f8f9fa; /* Light background color */
+    color: #333; /* Dark text color for better readability */
+  }
+  
+  h1 {
+    font-weight: 700;
+  }
+  
+  .display-4 {
+    font-size: 3rem;
+    font-weight: 700;
+  }
+  
+  .text-muted {
+    color: #6c757d !important;
+  }
+  
+  .card {
+    background-color: white;
+    border-radius: 8px; /* Smooth card corners */
+  }
+  
+  .card-body {
+    padding: 2rem; /* Add padding inside the card */
+  }
+  
+  button {
+    margin-top: 20px;
+  }
+  
+  /* Add spacing around the container */
+  .mt-5 {
+    margin-top: 3rem !important;
+  }
+  
+  /* Custom class for the "Not Found" page message */
+  .not-found {
+    color: #dc3545; /* Red color for error message */
+    font-weight: bold;
+  }
+  
