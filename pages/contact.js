@@ -1,41 +1,50 @@
-import React from 'react';
-import data from '../data/pageData.json';
+import fs from 'fs';
+import path from 'path';
 import Head from 'next/head';
 import { Container, Row, Col, Button, Card } from 'react-bootstrap';
 
-const Contact = ({ pageData}) => {
-  return (
-   <>
-  <Head>
-        <title>{pageData.meta.title}</title>
-        <meta name="description" content={pageData.meta.description} />
-      </Head>
-      <Container className="mt-5">
-        <Row>
-          <Col lg={8} className="mx-auto">
-            <Card className="shadow-lg border-light">
-              <Card.Body>
-                <h1 className="display-4 ">{pageData.content.h1}</h1>
-                <p className="lead text-muted">{pageData.content.description}</p>
-                <Button variant="success" size="lg">Contact Us</Button>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
-      </Container>
-   </>
-  );
-};
-
-
 export async function getServerSideProps() {
+    const filePath = path.join(process.cwd(), 'data', 'pageData.json');
+    let pageData = null;
 
-  const pageData = data.website.routes.find(route => route.path === '/contact');
-  return {
-    props: {
-      pageData
+    try {
+
+        const fileContent = fs.readFileSync(filePath, 'utf8');
+        const data = JSON.parse(fileContent);
+        pageData = data.website.routes.find(route => route.path === '/contact');
+    } catch (error) {
+        console.error('Error reading the JSON file:', error);
     }
-  };
+
+    return {
+        props: { pageData },
+    };
 }
 
-export default Contact;
+export default function Contact({ pageData }) {
+    return (
+        <div>
+            <Head>
+                <title>{pageData.meta.title}</title>
+                <meta property="og:title" content={pageData.meta.title} />
+                <meta property="og:description" content={pageData.meta.description} />
+            </Head>
+            <Container className="mt-5">
+                <Row>
+                    <Col lg={8} className="mx-auto">
+                        <Card className="shadow-lg" style={{ background: 'transparent', color: 'black' }}>
+                            <Card.Body>
+                                <h1 className="text-center">{pageData?.meta.title}</h1>
+                                <p className="text-center">{pageData?.meta.description}</p>
+                                <h1 className="display-4 text-center mt-5">{pageData.content.h1}</h1>
+                                <p className="lead  text-center">{pageData.content.description}</p>
+
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                </Row>
+            </Container>
+
+        </div>
+    );
+}

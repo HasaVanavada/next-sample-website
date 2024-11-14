@@ -1,4 +1,12 @@
  
+body {
+    background: linear-gradient(to bottom right, #8634df, #d688cc);  /* Purple to blue diagonal gradient */
+    height: 100vh;
+    margin: 0;
+    font-family: 'Arial', sans-serif; 
+    color: #333; 
+  }
+
 
   nav {
     background-color: #333;
@@ -30,13 +38,7 @@
     background-color: #555;
   }
 
-  /* styles/globals.css */
-body {
-    font-family: 'Arial', sans-serif; /* Set a clean font */
-    background-color: #f8f9fa; /* Light background color */
-    color: #333; /* Dark text color for better readability */
-  }
-  
+
   h1 {
     font-weight: 700;
   }
@@ -52,25 +54,25 @@ body {
   
   .card {
     background-color: white;
-    border-radius: 8px; /* Smooth card corners */
+    border-radius: 8px; 
+    min-height: 450px;
   }
   
   .card-body {
-    padding: 2rem; /* Add padding inside the card */
+    padding: 2rem; 
   }
   
   button {
     margin-top: 20px;
   }
   
-  /* Add spacing around the container */
   .mt-5 {
     margin-top: 3rem !important;
   }
   
-  /* Custom class for the "Not Found" page message */
+
   .not-found {
-    color: #dc3545; /* Red color for error message */
+    color: #dc3545; 
     font-weight: bold;
   }
   
